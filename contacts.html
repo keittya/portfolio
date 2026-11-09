@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Keith Ann</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="auth.js"></script>
+</head>
+<body>
+
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<header class="header">
+    <a href="contacts.html" class="profile_icon">
+        <img src="images/profile.jpg" alt="Keith Ann Profile Picture">
+    </a>
+    <nav class="navigation" id="nav">
+        <a href="index.html">HOME</a>
+        <a href="works.html">WORKS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contacts.html" class="nav-active">CONTACT</a>
+    </nav>
+    <div class="socials">
+        <a href="https://www.instagram.com/keiczc"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@keiczcc"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/KeytAkabane"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+<section class="contact_hero reveal-hero">
+    <div class="contact_hero_text">
+        <div class="section-label" style="color:rgba(255,255,255,0.7)">✦ Let's talk</div>
+        <h1>Hello!<br>Let's work together<br>on your next project.</h1>
+    </div>
+</section>
+
+<section class="contact_section">
+    <!-- LEFT -->
+    <div class="contact_info reveal" style="--delay:0.1s">
+        <div class="section-label">✦ Reach out</div>
+        <h3>Get in Touch</h3>
+        <p>For commissions and project inquiries, please email:</p>
+        <p class="email"><i class="fas fa-envelope"></i> keithannsosa@gmail.com</p>
+        <p>or send a message using this form and I'll get back to you as soon as possible.</p>
+        <div class="contact_socials">
+            <a href="https://www.instagram.com/keiczc" class="contact-social-link">
+                <i class="fa-brands fa-instagram"></i> @keiczc
+            </a>
+            <a href="https://www.tiktok.com/@keiczcc" class="contact-social-link">
+                <i class="fa-brands fa-tiktok"></i> @keiczcc
+            </a>
+            <a href="https://www.facebook.com/KeytAkabane" class="contact-social-link">
+                <i class="fa-brands fa-facebook"></i> KeytAkabane
+            </a>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="contact_form reveal" style="--delay:0.2s">
+        <h2>Send a Message</h2>
+        <div class="name_fields">
+            <div class="float-group">
+                <input type="text" id="fname" placeholder=" " required>
+                <label for="fname">First Name</label>
+            </div>
+            <div class="float-group">
+                <input type="text" id="lname" placeholder=" " required>
+                <label for="lname">Last Name</label>
+            </div>
+        </div>
+        <div class="float-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email *</label>
+        </div>
+        <div class="float-group">
+            <textarea id="message" placeholder=" " required></textarea>
+            <label for="message">Write a message</label>
+        </div>
+        <button type="button" onclick="submitForm(this)">
+            Send Message <i class="fas fa-paper-plane"></i>
+        </button>
+        <p class="form-success" id="form-success">
+            <i class="fas fa-check-circle"></i> Message sent! I'll get back to you soon.
+        </p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Keith Ann. All rights reserved.</p>
+    <p class="footer-sub">Designed with <i class="fas fa-heart" style="color:#C38D94"></i> by Keith Ann Sosa</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+function submitForm(btn) {
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const msg   = document.getElementById('message').value.trim();
+    const reset = () => {
+        btn.style.background = '';
+        btn.disabled = false;
+        btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+    };
+    const showError = (text) => {
+        btn.style.background = 'linear-gradient(135deg,#e06060,#c03030)';
+        btn.textContent = text;
+        setTimeout(reset, 2500);
+    };
+    if (!fname || !email || !msg) { showError('Please fill required fields'); return; }
+
+    // GitHub Pages has no server: open the visitor's email app with the message filled in
+    if (!Auth.hasBackend) {
+        const subject = encodeURIComponent('Portfolio message from ' + fname + ' ' + lname);
+        const body = encodeURIComponent(msg + '\n\n— ' + fname + ' ' + lname + ' (' + email + ')');
+        window.location.href = 'mailto:keithannsosa@gmail.com?subject=' + subject + '&body=' + body;
+        btn.style.display = 'none';
+        const ok = document.getElementById('form-success');
+        ok.innerHTML = '<i class="fas fa-check-circle"></i> Opening your email app — press send to deliver your message.';
+        ok.style.display = 'flex';
+        return;
+    }
+
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    btn.disabled = true;
+
+    Auth.call('contact.php', { fname, lname, email, message: msg })
+        .then(() => {
+            btn.style.display = 'none';
+            document.getElementById('form-success').style.display = 'flex';
+        })
+        .catch(err => showError(err.message));
+}
+</script>
+</body>
+</html>

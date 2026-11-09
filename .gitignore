@@ -1,0 +1,8 @@
+# Local-only files (do NOT publish these on GitHub)
+api/
+database.sql
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/

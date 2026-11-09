@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keith Ann — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="auth.js"></script>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<header class="header">
+    <a href="contacts.html" class="profile_icon">
+        <img src="images/profile.jpg" alt="Keith Ann Profile Picture">
+    </a>
+    <nav class="navigation" id="nav">
+        <a href="index.html" class="nav-active">HOME</a>
+        <a href="works.html">WORKS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contacts.html">CONTACT</a>
+    </nav>
+    <div class="socials">
+        <a href="https://www.instagram.com/keiczc" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@keiczcc" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/KeytAkabane" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+<!-- Hero Section -->
+<section class="hero bg_image">
+    <div class="hero_particles" id="particles"></div>
+    <div class="hero_text reveal-hero">
+        <p class="hero_greeting">✦ Welcome to my portfolio</p>
+        <h1>Hello, I'm <span class="name-highlight">Keith Ann!</span></h1>
+        <p class="hero_sub">I'm a <span class="typed-text" id="typed"></span><span class="cursor-blink">|</span></p>
+        <p class="hero_desc">Welcome to my creative space — where design meets imagination. Explore my works and see how ideas come to life.</p>
+        <div class="hero_actions">
+            <a href="works.html" class="hero_btn">See My Works</a>
+            <a href="about.html" class="hero_btn hero_btn--outline">About Me</a>
+        </div>
+    </div>
+    <div class="hero_scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>
+
+<!-- Featured Works -->
+<section class="works_sec">
+    <div class="section-label reveal">✦ Portfolio</div>
+    <h2 class="reveal">Featured Works</h2>
+    <div class="works_container">
+        <a href="works.html" class="work_card reveal" style="--delay:0.1s">
+            <div class="card-img-wrap">
+                <img src="images/web_design.jpg" alt="Web Design Project">
+                <div class="card-overlay">
+                    <span>View Project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-tag">Web Design</p>
+                <h3>Origami Website</h3>
+            </div>
+        </a>
+        <a href="works.html" class="work_card reveal" style="--delay:0.2s">
+            <div class="card-img-wrap">
+                <img src="images/digital_art.jpeg" alt="Digital Illustration Project">
+                <div class="card-overlay">
+                    <span>View Project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-tag">Digital Art</p>
+                <h3>Illustrations</h3>
+            </div>
+        </a>
+        <a href="works.html" class="work_card reveal" style="--delay:0.3s">
+            <div class="card-img-wrap">
+                <img src="images/multimedia.jpg" alt="Multimedia Editing Project">
+                <div class="card-overlay">
+                    <span>View Project <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-tag">Multimedia</p>
+                <h3>Video Projects</h3>
+            </div>
+        </a>
+    </div>
+    <a href="works.html" class="view_all_btn reveal">View All Works <i class="fas fa-arrow-right"></i></a>
+</section>
+
+<!-- About Preview -->
+<section class="about_preview reveal">
+    <div class="about_preview_inner">
+        <div class="section-label">✦ Get to know me</div>
+        <h2>About Me</h2>
+        <p>I'm Keith Ann, a BSIT student and passionate creator who loves bringing ideas to life through design, video editing, and digital art. Curious about my journey and skills?</p>
+        <a href="about.html" class="read_more_btn">Read More <i class="fas fa-arrow-right"></i></a>
+    </div>
+</section>
+
+<!-- Stats Row -->
+<section class="stats_sec">
+    <div class="stat reveal" style="--delay:0.1s">
+        <span class="stat-num" data-target="8">0</span>
+        <span class="stat-label">Video Projects</span>
+    </div>
+    <div class="stat reveal" style="--delay:0.2s">
+        <span class="stat-num" data-target="8">0</span>
+        <span class="stat-label">Illustrations</span>
+    </div>
+    <div class="stat reveal" style="--delay:0.3s">
+        <span class="stat-num" data-target="1">0</span>
+        <span class="stat-label">Web Design</span>
+    </div>
+    <div class="stat reveal" style="--delay:0.4s">
+        <span class="stat-num" data-target="4">0</span>
+        <span class="stat-label">Skills</span>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="contact_cta reveal">
+    <div class="section-label">✦ Say Hello</div>
+    <h2>Let's Connect</h2>
+    <p>Interested in collaborating or just want to say hi? Reach out and let's create something amazing together!</p>
+    <a href="contacts.html" class="contact_btn">Contact Me <i class="fas fa-paper-plane"></i></a>
+</section>
+
+<footer>
+    <p>&copy; 2026 Keith Ann. All rights reserved.</p>
+    <p class="footer-sub">Designed with <i class="fas fa-heart" style="color:#C38D94"></i> by Keith Ann Sosa</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

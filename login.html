@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Keith Ann</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="auth.js"></script>
+</head>
+<body>
+
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<header class="header">
+    <a href="login.html" class="profile_icon">
+        <img src="images/profile.jpg" alt="Keith Ann Profile Picture">
+    </a>
+    <nav class="navigation" id="nav">
+        <a href="index.html">HOME</a>
+        <a href="works.html">WORKS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contacts.html">CONTACT</a>
+    </nav>
+    <div class="socials">
+        <a href="https://www.instagram.com/keiczc"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@keiczcc"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/KeytAkabane"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+<section class="login_page">
+    <div class="login_card reveal-hero">
+        <div class="section-label">✦ Welcome</div>
+        <h1>Keith Ann's Portfolio</h1>
+        <p class="login_sub">Log in or create an account to view my work.</p>
+
+        <div class="auth_tabs">
+            <button type="button" class="auth_tab active" data-tab="login">Log In</button>
+            <button type="button" class="auth_tab" data-tab="signup">Sign Up</button>
+        </div>
+
+        <!-- LOGIN -->
+        <form class="auth_form active" id="loginForm" novalidate>
+            <div class="float-group">
+                <input type="email" id="loginEmail" placeholder=" " autocomplete="username" required>
+                <label for="loginEmail">Email</label>
+            </div>
+            <div class="float-group">
+                <input type="password" id="loginPass" placeholder=" " autocomplete="current-password" required>
+                <label for="loginPass">Password</label>
+                <button type="button" class="toggle_pw" aria-label="Show password"><i class="fas fa-eye"></i></button>
+            </div>
+            <label class="remember_row"><input type="checkbox" id="remember"> Keep me logged in</label>
+            <button type="submit" class="auth_btn">Log In</button>
+        </form>
+
+        <!-- SIGN UP -->
+        <form class="auth_form" id="signupForm" novalidate>
+            <div class="float-group">
+                <input type="text" id="signName" placeholder=" " autocomplete="name" required>
+                <label for="signName">Full Name</label>
+            </div>
+            <div class="float-group">
+                <input type="email" id="signEmail" placeholder=" " autocomplete="email" required>
+                <label for="signEmail">Email</label>
+            </div>
+            <div class="float-group">
+                <input type="password" id="signPass" placeholder=" " autocomplete="new-password" required>
+                <label for="signPass">Password (min. 6 characters)</label>
+                <button type="button" class="toggle_pw" aria-label="Show password"><i class="fas fa-eye"></i></button>
+            </div>
+            <div class="float-group">
+                <input type="password" id="signPass2" placeholder=" " autocomplete="new-password" required>
+                <label for="signPass2">Confirm Password</label>
+            </div>
+            <button type="submit" class="auth_btn">Create Account</button>
+        </form>
+
+        <p class="auth_msg" id="authMsg" role="alert"></p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Keith Ann. All rights reserved.</p>
+    <p class="footer-sub">Designed with <i class="fas fa-heart" style="color:#C38D94"></i> by Keith Ann Sosa</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+(function () {
+    var msg = document.getElementById('authMsg');
+    function show(text, ok) { msg.textContent = text; msg.className = 'auth_msg' + (ok ? ' ok' : ''); }
+
+    // Tabs
+    document.querySelectorAll('.auth_tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            document.querySelectorAll('.auth_tab').forEach(function (t) { t.classList.remove('active'); });
+            document.querySelectorAll('.auth_form').forEach(function (f) { f.classList.remove('active'); });
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab === 'login' ? 'loginForm' : 'signupForm').classList.add('active');
+            show('');
+        });
+    });
+
+    // Show / hide password
+    document.querySelectorAll('.toggle_pw').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var input = btn.parentElement.querySelector('input');
+            var hidden = input.type === 'password';
+            input.type = hidden ? 'text' : 'password';
+            btn.innerHTML = '<i class="fas fa-eye' + (hidden ? '-slash' : '') + '"></i>';
+        });
+    });
+
+    async function run(form, action, okText) {
+        var btn = form.querySelector('.auth_btn');
+        btn.disabled = true;
+        try {
+            await action();
+            show(okText, true);
+            setTimeout(function () { location.href = 'index.html'; }, 700);
+        } catch (err) {
+            show(err.message);
+            btn.disabled = false;
+        }
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        run(e.target, function () {
+            return Auth.login(
+                document.getElementById('loginEmail').value,
+                document.getElementById('loginPass').value,
+                document.getElementById('remember').checked
+            );
+        }, 'Welcome back! Redirecting…');
+    });
+
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (document.getElementById('signPass').value !== document.getElementById('signPass2').value) {
+            return show('Passwords do not match.');
+        }
+        run(e.target, function () {
+            return Auth.register(
+                document.getElementById('signName').value,
+                document.getElementById('signEmail').value,
+                document.getElementById('signPass').value
+            );
+        }, 'Account created! Redirecting…');
+    });
+})();
+</script>
+</body>
+</html>

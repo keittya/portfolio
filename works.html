@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Works — Keith Ann</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="auth.js"></script>
+</head>
+<body>
+
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<header class="header">
+    <a href="contacts.html" class="profile_icon">
+        <img src="images/profile.jpg" alt="Keith Ann Profile Picture">
+    </a>
+    <nav class="navigation" id="nav">
+        <a href="index.html">HOME</a>
+        <a href="works.html" class="nav-active">WORKS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contacts.html">CONTACT</a>
+    </nav>
+    <div class="socials">
+        <a href="https://www.instagram.com/keiczc"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@keiczcc"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/KeytAkabane"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+<!-- Demo Reel -->
+<div class="demo_reel" role="button" tabindex="0" aria-label="Play Keith's demo reel"
+     onclick="openReel()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReel();}">
+    <div class="reel_media">
+        <video muted playsinline preload="metadata">
+            <source src="demoreel/demoreel_web.mp4#t=0.5" type="video/mp4">
+            <source src="demoreel/demoreel_click.mp4#t=0.5" type="video/mp4">
+            <source src="demoreel/demoreel.mp4#t=0.5" type="video/mp4">
+        </video>
+        <span class="reel_badge">✦ Showreel</span>
+        <div class="play_btn"><i class="fas fa-play"></i></div>
+    </div>
+    <div class="reel_info">
+        <h3>KEITH'S DEMO REEL</h3>
+        <span>Click to watch <i class="fas fa-arrow-right"></i></span>
+    </div>
+</div>
+
+<!-- Hero -->
+<section class="about_hero works-hero reveal-hero">
+    <div class="hero_text">
+        <div class="section-label">✦ Creative work</div>
+        <h1>My Works</h1>
+        <p>A selection of my projects in web design, digital illustration, and multimedia. Explore my creations and see how I bring ideas to life.</p>
+    </div>
+</section>
+
+<!-- Filters -->
+<section class="works_nav">
+    <button class="work_filter active" data-category="all">All</button>
+    <button class="work_filter" data-category="web">Web Design</button>
+    <button class="work_filter" data-category="digital">Digital Art</button>
+    <button class="work_filter" data-category="video">Multimedia</button>
+    <button class="work_filter" data-category="other">Other</button>
+</section>
+
+<!-- ================= WEB DESIGN ================= -->
+<section class="works_sec work_item reveal" data-category="web">
+    <div class="section-label">✦ Web</div>
+    <h2>Web Design Projects</h2>
+    <div class="works_container">
+        <a href="web_design/index.html" target="_blank" class="work_card">
+            <div class="card-img-wrap">
+                <img src="images/origami_cover.jpg" alt="Origami Website">
+                <div class="card-overlay">
+                    <span>View Project <i class="fas fa-external-link-alt"></i></span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-tag">Web Design</p>
+                <h3>Origami Website</h3>
+                <p>A modern redesign featuring clean layouts, interactive tutorials, and visually engaging content.</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- ================= DIGITAL ILLUSTRATION ================= -->
+<section class="works_sec work_item reveal" data-category="digital">
+    <div class="section-label">✦ Digital Art</div>
+    <h2>Digital Illustration Projects</h2>
+    <div class="illustration_grid">
+        <div class="illus-wrap"><img src="digital_art/social_advertisement.jpg" class="zoom_img" alt="Social Advertisement"></div>
+        <div class="illus-wrap"><img src="digital_art/flyer.jpg" class="zoom_img" alt="Flyer"></div>
+        <div class="illus-wrap"><img src="digital_art/banner.jpg" class="zoom_img" alt="Banner"></div>
+        <div class="illus-wrap"><img src="digital_art/jesus.jpg" class="zoom_img" alt="Jesus Illustration"></div>
+        <div class="illus-wrap"><img src="digital_art/nutrition.jpg" class="zoom_img" alt="Nutrition Poster"></div>
+        <div class="illus-wrap"><img src="digital_art/pangkopiko.jpg" class="zoom_img" alt="Pangkopiko"></div>
+        <div class="illus-wrap"><img src="digital_art/movie.jpg" class="zoom_img" alt="Movie Poster"></div>
+        <div class="illus-wrap"><img src="digital_art/model.jpg" class="zoom_img" alt="Model"></div>
+    </div>
+</section>
+
+<!-- ================= MULTIMEDIA ================= -->
+<section class="works_sec work_item reveal" data-category="video">
+    <div class="section-label">✦ Multimedia</div>
+    <h2>Multimedia Projects</h2>
+    <div class="video_grid">
+        <div class="video_card">
+            <div class="video-wrap"><video controls><source src="multimedia_projects/vlog.mp4" type="video/mp4"></video></div>
+            <div class="video-info">
+                <h3>A Day in the Life Of an Ignacian Marian</h3>
+                <p>A vlog showing students at St. Mary's juggling school, challenges, and fun moments with friends.</p>
+            </div>
+        </div>
+        <div class="video_card">
+            <div class="video-wrap"><video controls><source src="multimedia_projects/commercial.mp4" type="video/mp4"></video></div>
+            <div class="video-info">
+                <h3>Shampookie Commercial</h3>
+                <p>A hilarious shampoo ad where a guy gets mistaken for a stalker — all he wants is her hair secret!</p>
+            </div>
+        </div>
+        <div class="video_card">
+            <div class="video-wrap"><video controls><source src="multimedia_projects/podcast.mp4" type="video/mp4"></video></div>
+            <div class="video-info">
+                <h3>KD Podcast</h3>
+                <p>Exploring the experiences of STEM students — their struggles and how they overcame them.</p>
+            </div>
+        </div>
+        <div class="video_card">
+            <div class="video-wrap"><video controls><source src="multimedia_projects/movie.mp4" type="video/mp4"></video></div>
+            <div class="video-info">
+                <h3>The Summer Solstice</h3>
+                <p>A short film capturing the beauty, traditions, and emotions of the summer solstice.</p>
+            </div>
+        </div>
+        <div class="video_card">
+            <div class="video-wrap"><video controls><source src="multimedia_projects/game.mp4" type="video/mp4"></video></div>
+            <div class="video-info">
+                <h3>Roll Your Luck Game</h3>
+                <p>A short story about a girl who discovers an old board game among her mom's belongings.</p>
+            </div>
+        </div>
+        <div class="video_card">
+            <div class="video-wrap"><video controls><source src="multimedia_projects/roleplay.mp4" type="video/mp4"></video></div>
+            <div class="video-info">
+                <h3>Business Consultation Approval</h3>
+                <p>Follow Mr. Felix as he navigates a formal partnership, showcasing the consultation process.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="contact_cta reveal">
+    <div class="section-label">✦ Collaborate</div>
+    <h2>Want to collaborate?</h2>
+    <p>If you like what you see or want to create something together, feel free to reach out!</p>
+    <a href="contacts.html" class="contact_btn">Contact Me <i class="fas fa-paper-plane"></i></a>
+</section>
+
+<footer>
+    <p>&copy; 2026 Keith Ann. All rights reserved.</p>
+    <p class="footer-sub">Designed with <i class="fas fa-heart" style="color:#C38D94"></i> by Keith Ann Sosa</p>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox">
+    <span class="close">&times;</span>
+    <img id="lightbox_img" alt="Enlarged illustration">
+</div>
+
+<!-- Reel Modal -->
+<div id="reelModal" class="reel_modal">
+    <span class="reel_close" onclick="closeReel()">&times;</span>
+    <div class="reel_stage">
+        <video id="reelVideo" controls playsinline preload="metadata">
+            <source src="demoreel/demoreel_web.mp4" type="video/mp4">
+            <source src="demoreel/demoreel_click.mp4" type="video/mp4">
+            <source src="demoreel/demoreel.mp4" type="video/mp4">
+        </video>
+        <p id="reelError" class="reel_error" role="alert"></p>
+    </div>
+</div>
+
+<script src="works.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
