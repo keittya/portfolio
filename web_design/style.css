@@ -1,0 +1,522 @@
+/*style.css*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Aubrey', sans-serif;
+    font-size: 48px;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; 
+    flex-wrap: wrap;    
+}
+
+.header_logo {
+    width: 200px;
+    height: auto;
+}
+
+.navigation {
+    display: flex;
+    gap: 25px;
+}
+
+.navigation a,
+.navigation button {
+    text-decoration: none;
+    color: white;
+    background-color: #D68189;
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: 1px solid #D68189;
+    display: inline-block;
+    
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.navigation a:hover,
+.navigation button:hover  {
+    background-color: #E94E77;
+    border-color: #E94E77;
+	transform: translateY(-5px);  
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.section_1 {
+    text-align: justify;
+    margin: 40px 100px;
+}
+
+.section_1 h1 {
+    text-align: center;
+}
+
+.section_2 {
+    text-align: center;
+    width: 100%;
+    background-color: #EEEBE6;
+    padding-top: 10px;
+}
+
+.featuredLesson_pic {
+    width: 70%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.section_3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: #EEEBE6;
+    padding: 20px;
+}
+
+.section_3content {
+    flex: 1;
+    text-align: left;
+}
+
+.lesson_ad {
+    flex: 0 0 250px;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #C6A49A;
+    text-align: center;
+    color: white;
+}
+
+.coin_button {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: #E3CFB4;
+    color: #E94E77;
+    font-size: 30px;
+    border-radius: 50%;
+    border: none;
+    margin-top: 10px;
+}
+
+.join_button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #E94E77;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.join_button:hover {
+    background-color: #4A0F22;
+}
+
+.section_4 {
+    text-align: justify;
+    margin: 40px 100px;
+}
+
+.section_5 {
+    background-color: #EEEBE6;
+    padding: 20px;
+    text-align: center;
+}
+
+.animal_section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+}
+
+.animal_card {
+    flex: 0 0 250px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.animal_card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.regal_rate, .wiley_rate,.wise_rate, .resting_rate{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #E94E77;
+    color: white;
+    border-radius: 8px;
+    border: none;
+}
+
+.regal_rate:hover, .wiley_rate:hover,.wise_rate:hover, .resting_rate:hover
+{
+	background-color:#4A0F22;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #C6A49A;
+    padding: 10px 40px;
+}
+
+.footer_logo img {
+    width: 200px;
+    height: auto;
+}
+
+.name_footer {
+    text-align: right;
+}
+
+
+.about_header,
+.lessons_header {
+    position: relative;
+}
+
+.about_header img,
+.lessons_header img {
+    width: 100%;
+    height: 70px;
+    background-color: #C6A49A;
+}
+
+.about_header p,
+.lessons_header p {
+    position: absolute;
+    left: 20px;
+    color: white;
+    font-size: 24px;
+}
+
+.about_sec1,
+.lessons_sec1 {
+    text-align: center;
+    padding: 20px 50px;
+}
+
+.masters_container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.ideoji_pic,
+.tsumugi_pic {
+    width: 300px;
+    border-radius: 50%;
+}
+
+.ideoji_pic img,
+.tsumugi_pic img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.about_sec2 {
+    text-align: center;
+    background-color: #EEEBE6;
+    padding: 20px;
+    width: 100%;
+}
+
+.masters_2ndContainer {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.kanako_pic img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;
+    display: block;
+    margin: 0 auto;
+}
+
+.masters_3rdContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    gap: 100px;
+    justify-content: center;
+}
+
+.masters_3rdContainer img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.lesson_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    gap: 30px;
+    padding: 40px;
+    justify-content: center;
+}
+
+.lesson_grid article {
+    background-color: #E3CFB4;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lesson_grid img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.lesson_button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #E94E77;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.lesson_button:hover {
+    background-color: #4A0F22;
+}
+
+.lessons_sec2 {
+    text-align: center;
+    padding: 20px 50px;
+    background-color: #EEEBE6;
+    width: 100%;
+}
+
+.lessons_links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #EEEBE6;
+}
+
+.box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 0 0 300px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.box img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.map{
+	margin-top: 40px;
+}
+.map iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 10px;
+}
+
+
+.contact_section {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding: 60px 100px;
+}
+
+.contact_form {
+    flex: 2;
+}
+
+.contact_info {
+    flex: 1;
+}
+
+.contact_info strong{
+	font-weight:bold;
+}
+
+form{
+	display:flex;
+	flex-direction:column;
+	gap:15px;
+}
+
+.form_row{
+	display:flex;
+	align-items:flex-start;
+	gap:20px;
+}
+
+.form_row label{
+	width:120px;
+}
+
+.form_row input,
+.form_row select,
+.form_row textarea{
+	flex:1;
+	padding:10px;
+	border-radius:8px;
+	border:none;
+	background:#e8e4e1;
+}
+
+textarea{
+	height:80px;
+}
+
+.radio_group{
+	display:flex;
+	gap:20px;
+}
+
+.checkbox_group{
+	display:flex;
+	flex-direction:column;
+	gap:5px;
+}
+
+.send_button{
+	width:120px;
+	padding:10px;
+	border:none;
+	border-radius:8px;
+    background-color:#E94E77;
+    color:white;
+	font-weight:bold;
+}
+
+.send_button:hover{
+	background-color: #4A0F22;
+}
+
+.social_icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: gray;   
+    color: white;            
+    border-radius: 20%;      
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.social_icon:hover {
+    background-color: #E94E77;
+}
+
+@media (max-width: 428px) {
+    body {
+        margin: 10px;
+    }
+
+    .header {
+        justify-content: center; 
+        gap: 10px;              
+    }
+
+    .header_logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 10px;   
+    }
+
+    .navigation {
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .navigation a,
+    .navigation button {
+        width: 80%; 
+        text-align: center;
+        padding: 10px 0;
+        font-size: 14px; 
+    }
+
+    .section_1, .section_4 {
+        margin: 20px 10px;
+        font-size: 14px;
+    }
+
+    .section_3, .animal_section, .masters_container, .masters_2ndContainer {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .lesson_grid {
+        grid-template-columns: 1fr; 
+        padding: 10px;
+        gap: 20px;
+    }
+
+    .lessons_links {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .masters_3rdContainer {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .contact_section {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 10px;
+    }
+
+    .form_row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+	

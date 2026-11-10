@@ -1,0 +1,132 @@
+ <!-- contacts.html -->
+
+<!DOCTYPE html> 
+<html lang ="en">
+<head>
+	<meta charset= "UTF-8">
+	<meta name = "viewport" content ="width=device-width initialscale = 1.0">
+	<title>Contacts Page</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Aubrey&family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>	
+	<header class="header">
+		<img src="origami_logo.png" alt="House of Origami" class="header_logo" />
+		
+		<nav class="navigation">
+			<a href="index.html" class="home_button">HOME</a>
+			<a href="lessons.html" class="lessons_button">LESSONS</a>
+			<a href="about.html" class="about_button">ABOUT</a>
+			<a href="contacts.html" class="contact_button">CONTACT</a>
+		</nav>
+	</header>
+	
+	<section  class ="map">
+		<iframe
+		src="https://maps.google.com/maps?q=14.6931712,120.9860096&z=13&output=embed"
+		loading="lazy"
+		allowfullscreen>
+		</iframe>
+	</section>
+	
+	<section class="contact_section">
+		<article class="contact_form">
+			
+			<h2>SEND US A MESSAGE</h2>
+			
+			<form>
+
+				<div class="form_row">
+				<label>Name</label>
+				<input type="text">
+				</div>
+
+				<div class="form_row">
+				<label>Email</label>
+				<input type="email">
+				</div>
+
+				<div class="form_row">
+				<label>Age</label>
+				<input type="number">
+				</div>
+
+				<div class="form_row">
+				<label>Skill Level</label>
+
+				<div class="radio_group">
+				<label><input type="radio" name="skill"> Beginner</label>
+				<label><input type="radio" name="skill"> Intermediate</label>
+				<label><input type="radio" name="skill"> Master</label>
+				</div>
+
+				</div>
+
+				<div class="form_row">
+				<label>Interests</label>
+
+				<div class="checkbox_group">
+				<label><input type="checkbox"> Animals</label>
+				<label><input type="checkbox"> Objects</label>
+				<label><input type="checkbox"> Landscapes</label>
+				<label><input type="checkbox"> Humans</label>
+				<label><input type="checkbox"> Complex</label>
+				</div>
+
+				</div>
+
+				<div class="form_row">
+				<label>Country</label>
+				<select>
+				<option>Select</option>
+				</select>
+				</div>
+
+				<div class="form_row">
+				<label>Message</label>
+				<textarea></textarea>
+				</div>
+
+				<button class="send_button">SEND</button>
+
+			</form>
+		</article>
+
+		<aside class="contact_info">
+
+			<h2>HEADQUARTERS</h2>
+
+		<p>
+		Hakusa Sonso Hashimoto<br>
+		37 Jodoji Ishibashicho, Sakyo<br>
+		Kyoto, 606-8406, Japan
+		</p>	
+
+			<p><strong>Phone</strong> +81 723 5621 99</p>
+			<p><strong>Email</strong> info@houseoforigami.org</p>
+
+		<div class="social_icons">
+			<a href="#" class="social_icon"><i class="fab fa-facebook-f"></i></a>
+			<a href="#" class="social_icon"><i class="fab fa-instagram"></i></a>
+			<a href="#" class="social_icon"><i class="fab fa-youtube"></i></a>
+			<a href="#" class="social_icon"><i class="fab fa-behance"></i></a>
+			<a href="#" class="social_icon"><i class="fa-brands fa-x"></i></a> <!-- Correct X icon -->
+		</div>
+
+		</aside>
+
+	</section>
+
+</body>	
+
+<footer class = "footer">
+	<figure class ="footer_logo">
+		<img src="origami_logo_dark.png" alt="House of Origami Footer"/>
+	</figure>
+	<p>Copyright © 2026. House of Origami,<br>37 Jodoji Ishibashicho, Sakyo Kyoto,<br> 606-8406, Japan</p>
+	<p class = "name_footer">Web Design by Keith Ann Sosa</p>
+</footer>
+
+</html>
