@@ -153,3 +153,51 @@ function closeReel() {
 document.getElementById('reelModal')?.addEventListener('click', e => {
     if (e.target.id === 'reelModal') closeReel();
 });
+
+
+/* ── YOUTUBE VIDEOS (multimedia section) ─────────────────
+   Shows a thumbnail with a play button; the YouTube player only loads
+   when clicked, so the page stays fast. */
+(function youtubeEmbeds() {
+    function ytId(v) {
+        v = (v || '').trim();
+        if (/^[\w-]{11}$/.test(v)) return v;
+        const m = v.match(/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/)([\w-]{11})/);
+        return m ? m[1] : null;
+    }
+
+    document.querySelectorAll('.yt_embed').forEach(box => {
+        const id    = ytId(box.dataset.yt);
+        const title = box.dataset.title || 'YouTube video';
+
+        if (!id) {
+            box.classList.add('yt_empty');
+            box.innerHTML = '<div class="yt_msg"><i class="fab fa-youtube"></i><span>Add your YouTube link</span></div>';
+            return;
+        }
+
+        box.style.backgroundImage = 'url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)';
+        box.setAttribute('role', 'button');
+        box.setAttribute('tabindex', '0');
+        box.setAttribute('aria-label', 'Play video: ' + title);
+        box.innerHTML = '<span class="yt_play"><i class="fas fa-play"></i></span>';
+
+        function load() {
+            const f = document.createElement('iframe');
+            f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+            f.title = title;
+            f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            f.allowFullscreen = true;
+            f.referrerPolicy = 'strict-origin-when-cross-origin';
+            box.innerHTML = '';
+            box.appendChild(f);
+            box.classList.add('yt_playing');
+            box.removeAttribute('role');
+            box.removeAttribute('tabindex');
+        }
+        box.addEventListener('click', load, { once: true });
+        box.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); }
+        });
+    });
+})();
